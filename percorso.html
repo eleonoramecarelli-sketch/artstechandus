@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Percorso 360° · Arts, Tech and Us</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Caveat:wght@600;700&family=Fraunces:opsz,wght@9..144,400;9..144,600&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.head-360{background:color-mix(in srgb, var(--lagoon) 16%, var(--paper))}
+.player{border-radius:18px; background:var(--card); border:2px solid var(--ink); overflow:hidden; min-width:0}
+.player-head{display:flex; align-items:center; justify-content:space-between; gap:.6rem; padding:.7rem 1rem; border-bottom:2px solid var(--ink); background:var(--lagoon); color:var(--on-color); flex-wrap:wrap}
+.player-head strong{font-family:var(--font-display); font-size:.95rem}
+.player-head span{font-size:.78rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase}
+#h5p-stage{min-height:20rem; display:grid; place-items:center; padding:.6rem}
+#h5p-stage iframe{display:block; width:100%; border:0}
+.tour-host{width:100%}
+.intro{text-align:center; display:flex; flex-direction:column; align-items:center; gap:.8rem; padding:1rem}
+.intro p{font-size:.9rem; color:var(--ink-soft); max-width:30rem}
+.how{display:flex; flex-wrap:wrap; gap:.6rem; margin-top:1rem}
+.how span{font-size:.88rem; font-weight:700; padding:.35rem .8rem; border-radius:999px; background:var(--card); border:2px solid var(--line)}
+.stops{display:grid; grid-template-columns:repeat(2,1fr); gap:1rem}
+@media (max-width: 760px){ .stops{grid-template-columns:1fr} }
+.stop{border-radius:var(--r); padding:1.2rem; background:var(--paper); border:2px solid var(--line); display:flex; flex-direction:column; gap:.7rem; min-width:0}
+.stop-top{display:flex; align-items:center; gap:.7rem}
+.pin{flex:none; width:2.3rem; height:2.3rem; border-radius:50%; display:grid; place-items:center; font-family:var(--font-display); font-weight:900; color:var(--on-color)}
+.stop:nth-child(1) .pin{background:var(--coral)}
+.stop:nth-child(2) .pin{background:var(--sun); color:var(--sun-ink)}
+.stop:nth-child(3) .pin{background:var(--violet)}
+.stop:nth-child(4) .pin{background:var(--leaf); color:var(--sun-ink)}
+.stop p{font-size:.96rem}
+/* versione semplificata senza WebGL */
+.flat{width:100%; display:flex; flex-direction:column; gap:.6rem}
+.flat-note{font-size:.88rem; background:color-mix(in srgb, var(--sun) 35%, var(--paper)); border-radius:10px; padding:.6rem .8rem}
+.flat-bar{display:flex; align-items:center; justify-content:space-between; gap:.6rem; flex-wrap:wrap}
+.flat-bar strong{font-family:var(--font-display); font-size:1rem}
+.flat-bar select{font:inherit; font-weight:700; padding:.35rem .6rem; border-radius:999px; border:2px solid var(--ink); background:var(--card); color:var(--ink); max-width:100%}
+.flat-view{position:relative; height:min(62vh,34rem); overflow:hidden; border-radius:12px; cursor:grab; touch-action:pan-y; background:#222; user-select:none}
+.flat-view:active{cursor:grabbing}
+.flat-track{position:absolute; top:0; left:0; height:100%; display:flex; will-change:transform}
+.flat-tile{position:relative; height:100%; flex:none; margin-right:-1px; background-size:100% 100%; background-repeat:no-repeat}
+.hs{position:absolute; transform:translate(-50%,-50%); display:inline-flex; align-items:center; gap:.4rem; font:inherit; font-size:.85rem; font-weight:700; border:0; border-radius:999px; padding:.35rem .75rem .35rem .4rem; cursor:pointer; color:#fff; background:rgba(20,18,40,.78); white-space:nowrap}
+.hs i{width:1.6rem; height:1.6rem; border-radius:50%; display:grid; place-items:center; font-style:normal; font-weight:900; background:#fff; color:#1d1838}
+.hs.go i{background:var(--coral); color:#fff}
+.hs:focus-visible{outline:3px solid var(--sun)}
+.flat-pop{position:absolute; inset:auto 1rem 1rem 1rem; max-height:70%; overflow:auto; background:var(--card); color:var(--ink); border-radius:12px; padding:1rem 1.1rem; box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.flat-pop img{max-width:100%; border-radius:8px; display:block}
+.flat-pop button{float:right; font:inherit; font-weight:800; border:2px solid var(--ink); background:var(--card); color:var(--ink); border-radius:999px; padding:.2rem .7rem; cursor:pointer; margin-left:.6rem}
+.flat-hint{font-size:.82rem; color:var(--ink-soft)}
+</style>
+</head>
+<body>
+<div id="site-header" data-page="percorso"></div>
+
+<main>
+  <section class="pagehead head-360">
+    <svg class="thread" viewBox="0 0 1200 300" preserveAspectRatio="none" aria-hidden="true"><path d="M-20 250 C 240 130, 460 300, 700 200 S 1020 70, 1230 140" stroke="var(--lagoon)" opacity=".6"/></svg>
+    <div class="wrap">
+      <div class="crumbs"><span class="chip work" data-i18n="wip">In lavorazione</span></div>
+      <h1 data-i18n="pc_h">Percorso 360°</h1>
+      <div class="todo"><span data-i18n="pc_lead">Breve introduzione al percorso 360°: luoghi attraversati e come esplorarlo.</span></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="player">
+        <div class="player-head"><strong data-i18n="pc_player">Visita virtuale</strong><span data-i18n="pc_sample">Versione provvisoria</span></div>
+        <div id="h5p-stage">
+          <div class="intro" id="tour-intro">
+            <button type="button" class="btn" id="start-tour">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+              <span data-i18n="pc_btn">Avvia il percorso</span>
+            </button>
+            <p data-i18n="pc_note">Dieci scene a 360°: dalla piazza alla chiesa della Solitudine, lungo il sentiero tra i pini fino al portale e alle colonne di "Andando via".</p>
+          </div>
+        </div>
+      </div>
+      <div class="how">
+        <span data-i18n="pc_h1">Trascina per guardarti intorno</span>
+        <span data-i18n="pc_h2">Clicca sulle frecce per cambiare scena</span>
+        <span data-i18n="pc_h3">Apri le icone per leggere gli approfondimenti</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="block band">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker" style="color:var(--lagoon)" data-i18n="pc_k">Le tappe</span>
+        <h2 data-i18n="pc_h2t">Cosa si incontra lungo il percorso</h2>
+      </div>
+      <div class="stops">
+        <article class="stop">
+          <div class="stop-top"><span class="pin">1</span><h3 data-i18n="t1">Il portale e la geografia astrale</h3></div>
+          <div class="todo"><span data-i18n="todo_stop">Spazio per il testo della tappa, a cura del gruppo di lavoro.</span></div>
+        </article>
+        <article class="stop">
+          <div class="stop-top"><span class="pin">2</span><h3 data-i18n="t2">Le colonne</h3></div>
+          <div class="todo"><span data-i18n="todo_stop">Spazio per il testo della tappa, a cura del gruppo di lavoro.</span></div>
+        </article>
+        <article class="stop">
+          <div class="stop-top"><span class="pin">3</span><h3 data-i18n="t3">Le donne dei romanzi di Grazia Deledda</h3></div>
+          <div class="todo"><span data-i18n="todo_stop">Spazio per il testo della tappa, a cura del gruppo di lavoro.</span></div>
+        </article>
+        <article class="stop">
+          <div class="stop-top"><span class="pin">4</span><h3 data-i18n="t4">Le scritture da immaginare</h3></div>
+          <div class="todo"><span data-i18n="todo_stop">Spazio per il testo della tappa, a cura del gruppo di lavoro.</span></div>
+        </article>
+      </div>
+      <nav class="pager" aria-label="Pagine">
+        <a href="index.html"><span data-i18n="prev">Pagina precedente</span><b>Home</b></a>
+        <a class="next" href="storia.html"><span data-i18n="next">Pagina successiva</span><b data-i18n="nav_storia">Storia per bambini</b></a>
+      </nav>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="player/main.bundle.js"></script>
+<script src="assets/site.js"></script>
+<script>
+function hasWebGL(){
+  try { var c = document.createElement('canvas'); return !!(window.WebGLRenderingContext && (c.getContext('webgl') || c.getContext('experimental-webgl'))); }
+  catch(e){ return false; }
+}
+function tourDir(){ var l = (window.SiteI18n && SiteI18n.lang && SiteI18n.lang()) || 'it'; return l === 'it' ? 'content' : 'content-' + l; }
+function tr(k, it){ return (window.SiteI18n && SiteI18n.t(k)) || it; }
+
+/* Versione semplificata: panoramica trascinabile con frecce e punti informativi, senza grafica 3D */
+function startFlat(stage, base){
+  fetch(base + 'tour/' + tourDir() + '/content.json').then(function(r){ return r.json(); }).then(function(data){
+    var scenes = data.threeImage.scenes, byId = {};
+    scenes.forEach(function(s){ byId[s.sceneId] = s; });
+    var wrap = document.createElement('div'); wrap.className = 'flat';
+    wrap.innerHTML =
+      '<p class="flat-note">' + tr('pc_flat', 'Questo browser non mostra la grafica 3D: stai vedendo la versione semplificata del percorso. Per la visione a 360° attiva in Chrome l’accelerazione hardware.') + '</p>' +
+      '<div class="flat-bar"><strong id="flat-title"></strong><select id="flat-sel" aria-label="Scena"></select></div>' +
+      '<div class="flat-view" id="flat-view"><div class="flat-track" id="flat-track"></div></div>' +
+      '<p class="flat-hint">' + tr('pc_flat_hint', 'Trascina l’immagine a destra e a sinistra; clicca sulle frecce per cambiare scena.') + '</p>';
+    stage.appendChild(wrap);
+    var view = wrap.querySelector('#flat-view'), track = wrap.querySelector('#flat-track'),
+        title = wrap.querySelector('#flat-title'), sel = wrap.querySelector('#flat-sel');
+    scenes.forEach(function(s){ var o = document.createElement('option'); o.value = s.sceneId; o.textContent = s.scenename; sel.appendChild(o); });
+    var cur = null, offset = 0, tileW = 0, pop = null;
+    var CROP_TOP = 0.18, CROP_BOT = 0.12; /* parte di cielo e di terreno nascosta */
+    function frac(pos){
+      var p = pos.split(',').map(parseFloat), yaw = p[0], pitch = p[1];
+      var x = ((yaw - Math.PI / 2) / (2 * Math.PI)) % 1; if (x < 0) x += 1;
+      return { x: x, y: 0.5 - pitch / Math.PI };
+    }
+    function closePop(){ if (pop) { pop.remove(); pop = null; } }
+    function openPop(html){
+      closePop(); pop = document.createElement('div'); pop.className = 'flat-pop';
+      pop.innerHTML = '<button type="button">' + tr('close', 'Chiudi') + '</button>' + html;
+      pop.querySelector('button').addEventListener('click', closePop);
+      view.appendChild(pop);
+    }
+    function place(){
+      track.style.transform = 'translateX(' + (-(offset % tileW) - tileW) + 'px)';
+    }
+    function layout(){
+      var h = view.clientHeight, th = h / (1 - CROP_TOP - CROP_BOT);
+      tileW = th * 2;
+      Array.prototype.forEach.call(track.children, function(t){ t.style.width = tileW + 'px'; t.style.height = th + 'px'; t.style.marginTop = (-CROP_TOP * th) + 'px'; });
+      place();
+    }
+    function show(id){
+      closePop(); cur = byId[id]; sel.value = id; title.textContent = cur.scenename;
+      track.innerHTML = '';
+      for (var c = 0; c < 3; c++) {
+        var tile = document.createElement('div'); tile.className = 'flat-tile';
+        tile.style.backgroundImage = 'url("' + base + 'tour/' + tourDir() + '/' + cur.scenesrc.path + '")';
+        cur.interactions.forEach(function(it){
+          var f = frac(it.interactionpos), lib = it.action.library, b = document.createElement('button');
+          b.type = 'button'; b.className = 'hs' + (lib.indexOf('GoToScene') > -1 ? ' go' : '');
+          b.style.left = (f.x * 100) + '%'; b.style.top = (f.y * 100) + '%';
+          b.innerHTML = '<i>' + (lib.indexOf('GoToScene') > -1 ? '→' : (lib.indexOf('H5P.Image') > -1 ? '▣' : 'i')) + '</i>';
+          var lab = document.createElement('span'); lab.textContent = it.labelText || (it.action.metadata && it.action.metadata.title) || ''; b.appendChild(lab);
+          b.addEventListener('click', function(e){
+            e.stopPropagation();
+            if (lib.indexOf('GoToScene') > -1) show(it.action.params.nextSceneId);
+            else if (lib.indexOf('H5P.Image') > -1) openPop('<img src="' + base + 'tour/' + tourDir() + '/' + it.action.params.file.path + '" alt="">');
+            else openPop(it.action.params.text || '');
+          });
+          tile.appendChild(b);
+        });
+        track.appendChild(tile);
+      }
+      layout();
+      var s = frac(cur.cameraStartPosition);
+      offset = s.x * tileW - view.clientWidth / 2; if (offset < 0) offset += tileW;
+      place();
+    }
+    sel.addEventListener('change', function(){ show(sel.value); });
+    var drag = null;
+    view.addEventListener('pointerdown', function(e){ if (e.target.closest('.hs,.flat-pop')) return; drag = { x: e.clientX, o: offset }; view.setPointerCapture(e.pointerId); });
+    view.addEventListener('pointermove', function(e){ if (!drag) return; offset = drag.o - (e.clientX - drag.x); offset = ((offset % tileW) + tileW) % tileW; place(); });
+    view.addEventListener('pointerup', function(){ drag = null; });
+    view.addEventListener('pointercancel', function(){ drag = null; });
+    view.tabIndex = 0;
+    view.addEventListener('keydown', function(e){
+      if (e.key === 'ArrowLeft') { offset = ((offset - 60) % tileW + tileW) % tileW; place(); }
+      if (e.key === 'ArrowRight') { offset = (offset + 60) % tileW; place(); }
+    });
+    window.addEventListener('resize', layout);
+    show(data.threeImage.startSceneId || 0);
+  }).catch(function(e){ console.error(e); stage.textContent = tr('pc_err', 'Il percorso non si è caricato. Ricarica la pagina e riprova.'); });
+}
+
+var tourStarted = false;
+function startTour(){
+  var base = new URL('.', location.href).href;
+  var stage = document.getElementById('h5p-stage');
+  Array.prototype.slice.call(stage.children).forEach(function(c){ if (c.id !== 'tour-intro') c.remove(); });
+  document.getElementById('tour-intro').hidden = true;
+  tourStarted = true;
+  if (!hasWebGL() || !window.H5PStandalone) { startFlat(stage, base); return; }
+  var host = document.createElement('div');
+  host.className = 'tour-host';
+  stage.appendChild(host);
+  new H5PStandalone.H5P(host, {
+    h5pJsonPath: base + 'tour', librariesPath: base + 'tour', contentJsonPath: base + 'tour/' + tourDir(),
+    frameJs: base + 'player/frame.bundle.js', frameCss: base + 'player/styles/h5p.css',
+    frame: false, fullScreen: true, embedType: 'iframe'
+  }).catch(function(e){ console.error(e); host.remove(); startFlat(stage, base); });
+}
+document.getElementById('start-tour').addEventListener('click', startTour);
+/* cambiando lingua con il tour aperto, il tour si ricarica tradotto */
+document.addEventListener('site:lang', function(){
+  if (!tourStarted) return;
+  /* il lettore H5P non si può riavviare nella stessa pagina: si ricarica la pagina e il tour riparte nella nuova lingua */
+  try { sessionStorage.setItem('andando-via-tour', '1'); } catch(e) {}
+  location.reload();
+});
+var autoStart = false;
+try { autoStart = sessionStorage.getItem('andando-via-tour') === '1'; sessionStorage.removeItem('andando-via-tour'); } catch(e) {}
+if (autoStart) { startTour(); document.getElementById('h5p-stage').scrollIntoView(); }
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+ARTS, TECH AND US - SITO DEL PROGETTO ERASMUS+
+IIS Francesco Ciusa (Nuoro) - Lycée Félix le Dantec (Lannion)
+
+COME PUBBLICARLO
+Il sito è statico: funziona su qualsiasi hosting di file, ma non aprendo
+index.html con un doppio clic (il browser blocca il tour 360°).
+- Netlify: trascinare la cartella "arts-tech-and-us" su https://app.netlify.com/drop
+- GitHub Pages: caricare il contenuto della cartella in un repository e attivare Pages
+- Server della scuola: copiare la cartella via FTP in una directory pubblica
+- Prova in locale: dalla cartella eseguire  python3 -m http.server  e aprire http://localhost:8000
+
+PAGINE
+index.html ................ Home
+percorso.html ............. Percorso 360° (tour H5P)
+storia.html ............... Storia per bambini
+racconto.html ............. Racconto registrato su Maria Lai
+artista.html .............. Scheda sull'artista
+
+DOVE SI MODIFICANO I CONTENUTI
+- Testi in italiano: direttamente nei file .html
+- Testi in francese e inglese: assets/site.js (pagine principali)
+- Menu, piè di pagina e dicitura UE: assets/site.js
+- Colori e caratteri: assets/style.css
+- I riquadri tratteggiati con il pallino giallo sono gli spazi per i testi degli studenti
+
+DA COMPLETARE
+- Tour 360°: sostituire il contenuto della cartella "tour" con il pacchetto .h5p
+  degli studenti, estratto (h5p.json, content/, cartelle H5P.*). Le cartelle
+  H5PEditor.* non servono. Immagini 360° equirettangolari 2:1, max 4096 px di lato.
+- Racconto: caricare l'audio in audio/narrazione.mp3
+- Logo Erasmus+: assets/erasmus-plus.png (meglio una versione ad alta risoluzione)
+
+TOUR IN TRE LINGUE
+Il tour usa le stesse foto (tour/content/images) con tre file di testo:
+tour/content/content.json (italiano), tour/content-fr/content.json (francese),
+tour/content-en/content.json (inglese). La pagina carica quello della lingua scelta.
+Se si modifica il tour (nuove scene, frecce, testi), vanno aggiornati tutti e tre.
+
+CREDITI TECNICI
+Lettore H5P: h5p-standalone 3.8.0 (licenza MIT). Librerie H5P: licenze nelle rispettive
+cartelle. Cartina: dati Natural Earth (pubblico dominio).

@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Scheda su Maria Lai · Arts, Tech and Us</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Caveat:wght@600;700&family=Fraunces:opsz,wght@9..144,400;9..144,600&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.head-artist{background:color-mix(in srgb, var(--coral) 16%, var(--paper))}
+.motto{font-family:var(--font-story); font-size:clamp(1.3rem,3vw,1.8rem); color:var(--coral); font-style:italic}
+.layout{display:grid; grid-template-columns:20rem 1fr; gap:clamp(1.5rem,4vw,3rem); align-items:start}
+@media (max-width: 900px){ .layout{grid-template-columns:1fr} }
+.id-card{
+  position:sticky; top:calc(env(safe-area-inset-top,0px) + 5rem);
+  border-radius:18px; border:2px solid var(--ink); box-shadow:5px 5px 0 var(--ink); background:var(--card); overflow:hidden;
+}
+@media (max-width: 900px){ .id-card{position:static} }
+.id-card header{background:var(--coral); color:var(--on-color); padding:1rem 1.2rem}
+.id-card header h2{font-size:1.3rem}
+.photo{margin:1rem 1.2rem 0; aspect-ratio:4/3; max-width:100%; border-radius:12px; border:2px dashed var(--line); display:grid; place-items:center; text-align:center; font-size:.85rem; color:var(--ink-soft); padding:1rem}
+.id-card dl{margin:0; padding:1rem 1.2rem 1.2rem; display:grid; grid-template-columns:auto 1fr; gap:.55rem 1rem; font-size:.95rem}
+.id-card dt{font-weight:800; color:var(--ink-soft); font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; padding-top:.15rem}
+.id-card dd{margin:0}
+.tl{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:0; position:relative}
+.tl li{display:grid; grid-template-columns:5.2rem 1fr; gap:1rem; padding-block:.75rem; border-bottom:1px dashed var(--line)}
+.tl b{font-family:var(--font-display); font-variant-numeric:tabular-nums; color:var(--coral)}
+.tl li:nth-child(2n) b{color:var(--lagoon)}
+.tl li:nth-child(3n) b{color:var(--violet)}
+.parts{display:flex; flex-direction:column; gap:2.2rem; min-width:0}
+.part{display:flex; flex-direction:column; gap:.9rem}
+.part h3{font-size:1.25rem}
+.note{font-size:.85rem; color:var(--ink-soft)}
+</style>
+</head>
+<body>
+<div id="site-header" data-page="artista"></div>
+
+<main>
+  <section class="pagehead head-artist">
+    <svg class="thread" viewBox="0 0 1200 300" preserveAspectRatio="none" aria-hidden="true"><path d="M-20 120 C 260 260, 520 40, 760 180 S 1080 260, 1230 90" stroke="var(--coral)" opacity=".5"/></svg>
+    <div class="wrap">
+      <div class="crumbs"><span class="chip work" data-i18n="wip">In lavorazione</span></div>
+      <h1>Maria Lai</h1>
+      <p class="motto" data-i18n="ar_motto">«Essere è tessere»</p>
+      <div class="todo"><span data-i18n="ar_lead">Breve presentazione dell'artista (2–3 righe).</span></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap layout">
+      <aside class="id-card" aria-label="Carta d'identità">
+        <header><span class="kicker" data-i18n="ar_id">Carta d'identità</span><h2>Maria Lai</h2></header>
+        <div class="photo" data-i18n="ar_photo">Spazio per un ritratto dell'artista (con i diritti d'uso verificati)</div>
+        <dl>
+          <dt data-i18n="ar_born">Nascita</dt><dd class="muted" data-i18n="fill">Da compilare</dd>
+          <dt data-i18n="ar_died">Morte</dt><dd class="muted" data-i18n="fill">Da compilare</dd>
+          <dt data-i18n="ar_study">Studi</dt><dd class="muted" data-i18n="fill">Da compilare</dd>
+          <dt data-i18n="ar_mat">Materiali</dt><dd class="muted" data-i18n="fill">Da compilare</dd>
+          <dt data-i18n="ar_mus">Museo</dt><dd class="muted" data-i18n="fill">Da compilare</dd>
+        </dl>
+      </aside>
+
+      <div class="parts">
+        <div class="part">
+          <span class="kicker" style="color:var(--coral)" data-i18n="ar_tlk">Le date principali</span>
+          <div class="todo"><span data-i18n="ar_tl">Linea del tempo: le date principali della vita e delle opere di Maria Lai, ciascuna con una breve descrizione.</span></div>
+        </div>
+
+        <div class="part">
+          <h3 data-i18n="ar_s1">Chi era Maria Lai</h3>
+          <div class="todo"><span data-i18n="ar_todo">Spazio per il testo degli studenti.</span></div>
+        </div>
+        <div class="part">
+          <h3 data-i18n="ar_s2">Il filo, il telaio e i libri cuciti</h3>
+          <div class="todo"><span data-i18n="ar_todo">Spazio per il testo degli studenti.</span></div>
+        </div>
+        <div class="part">
+          <h3 data-i18n="ar_s3">L'arte che coinvolge le persone</h3>
+          <div class="todo"><span data-i18n="ar_todo">Spazio per il testo degli studenti.</span></div>
+        </div>
+        <div class="part">
+          <h3 data-i18n="ar_s4">"Andando via" e Grazia Deledda</h3>
+          <div class="todo"><span data-i18n="ar_todo">Spazio per il testo degli studenti.</span></div>
+        </div>
+        <div class="part">
+          <h3 data-i18n="ar_s5">Fonti</h3>
+          <div class="todo"><span data-i18n="ar_todo_src">Spazio per l'elenco delle fonti consultate dagli studenti.</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="wrap">
+      <nav class="pager" aria-label="Pagine">
+        <a href="racconto.html"><span data-i18n="prev">Pagina precedente</span><b data-i18n="nav_racconto">Racconto</b></a>
+        <a class="next" href="index.html"><span data-i18n="back">Torna all'inizio</span><b>Home</b></a>
+      </nav>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Storia per bambini · Arts, Tech and Us</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Caveat:wght@600;700&family=Fraunces:opsz,wght@9..144,400;9..144,600&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.head-story{background:color-mix(in srgb, var(--sun) 26%, var(--paper))}
+.book{
+  border-radius:22px; border:2px solid var(--ink); box-shadow:8px 8px 0 var(--ink); background:var(--card); overflow:hidden;
+}
+.spread{display:grid; grid-template-columns:1fr 1fr; min-height:24rem}
+@media (max-width: 760px){ .spread{grid-template-columns:1fr} }
+.illo{
+  position:relative; display:grid; place-items:center; padding:1.5rem; min-height:16rem;
+  border-right:2px dashed var(--line); text-align:center;
+}
+@media (max-width: 760px){ .illo{border-right:0; border-bottom:2px dashed var(--line)} }
+.illo span{font-weight:800; font-size:.85rem; letter-spacing:.06em; text-transform:uppercase; color:var(--ink); background:var(--card); padding:.4rem .8rem; border-radius:999px; border:2px solid var(--ink)}
+.illo svg{position:absolute; inset:0; width:100%; height:100%; opacity:.5}
+.text{padding:clamp(1.4rem,4vw,2.4rem); display:flex; flex-direction:column; gap:1rem; justify-content:center}
+.text .pg{font-weight:800; font-size:.78rem; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-soft)}
+.text .story{font-family:var(--font-story); font-size:clamp(1.25rem,2.4vw,1.55rem); line-height:1.55; color:var(--ink-soft); font-style:italic}
+.bar{display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:.9rem 1.1rem; border-top:2px solid var(--ink); background:var(--sun); color:var(--sun-ink); flex-wrap:wrap}
+.bar .btn{padding:.5rem 1rem; font-size:.9rem; box-shadow:3px 3px 0 var(--ink)}
+.dots{display:flex; gap:.45rem}
+.dots button{width:14px; height:14px; border-radius:50%; border:2px solid var(--ink); background:var(--card); padding:0; cursor:pointer}
+.dots button[aria-current="true"]{background:var(--ink)}
+.cover{display:flex; flex-direction:column; gap:1rem; justify-content:center; padding:clamp(1.4rem,4vw,2.6rem)}
+.cover > span{font-weight:800; font-size:.78rem; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-soft)}
+.cover h2{font-size:clamp(1.6rem,4vw,2.6rem)}
+.credits-box{display:grid; grid-template-columns:repeat(3,1fr); gap:1rem}
+@media (max-width: 760px){ .credits-box{grid-template-columns:1fr} }
+.credits-box div{display:flex; flex-direction:column; gap:.5rem}
+</style>
+</head>
+<body>
+<div id="site-header" data-page="storia"></div>
+
+<main>
+  <section class="pagehead head-story">
+    <svg class="thread" viewBox="0 0 1200 300" preserveAspectRatio="none" aria-hidden="true"><path d="M-20 220 C 200 300, 420 100, 640 210 S 980 280, 1230 120" stroke="var(--coral)" opacity=".55"/></svg>
+    <div class="wrap">
+      <div class="crumbs"><span class="chip work" data-i18n="wip">In lavorazione</span></div>
+      <h1 data-i18n="st_h">Storia per bambini</h1>
+      <div class="todo"><span data-i18n="st_lead">Presentazione della storia: titolo, a chi è rivolta e di che cosa parla.</span></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="book" id="book" aria-roledescription="libro" aria-label="Storia illustrata">
+        <div class="spread" id="spread"></div>
+        <div class="bar">
+          <button type="button" class="btn ghost" id="prev"><span data-i18n="st_prev">← Indietro</span></button>
+          <div class="dots" id="dots" role="tablist" aria-label="Pagine"></div>
+          <button type="button" class="btn" id="next"><span data-i18n="st_next">Avanti →</span></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block band">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker" style="color:var(--coral)" data-i18n="st_k">Chi ha fatto il libro</span>
+        <h2 data-i18n="st_h2">Testi, disegni e voci</h2>
+      </div>
+      <div class="credits-box">
+        <div><h3 data-i18n="st_c1">Testo</h3><div class="todo"><span data-i18n="st_todo">Spazio per i nomi del gruppo, a cura degli studenti.</span></div></div>
+        <div><h3 data-i18n="st_c2">Illustrazioni</h3><div class="todo"><span data-i18n="st_todo">Spazio per i nomi del gruppo, a cura degli studenti.</span></div></div>
+        <div><h3 data-i18n="st_c3">Traduzioni</h3><div class="todo"><span data-i18n="st_todo">Spazio per i nomi del gruppo, a cura degli studenti.</span></div></div>
+      </div>
+      <nav class="pager" aria-label="Pagine">
+        <a href="percorso.html"><span data-i18n="prev">Pagina precedente</span><b data-i18n="nav_percorso">Percorso 360°</b></a>
+        <a class="next" href="racconto.html"><span data-i18n="next">Pagina successiva</span><b data-i18n="nav_racconto">Racconto</b></a>
+      </nav>
+    </div>
+  </section>
+</main>
+
+<!-- Modelli delle pagine del libro: sostituire testi e illustrazioni -->
+<template id="pages">
+  <div data-kind="cover"><span data-i18n="st_cover">Copertina</span><h2 data-i18n="st_title">Titolo della storia</h2><p class="muted" data-i18n="st_cover_p">Sottotitolo e nomi degli autori.</p></div>
+  <div data-kind="page"></div>
+  <div data-kind="page"></div>
+  <div data-kind="page"></div>
+  <div data-kind="page"></div>
+  <div data-kind="page"></div>
+</template>
+
+<div id="site-footer"></div>
+<script src="assets/site.js"></script>
+<script>
+(function(){
+  var colors = ['--sun','--coral','--lagoon','--violet','--leaf','--sky'];
+  var tpl = document.getElementById('pages').content.children;
+  var spread = document.getElementById('spread'), dots = document.getElementById('dots');
+  var prev = document.getElementById('prev'), next = document.getElementById('next');
+  var i = 0, n = tpl.length;
+  function t(k, fallback){ return (window.SiteI18n && SiteI18n.t(k)) || fallback; }
+  function render(){
+    var c = colors[i % colors.length];
+    var src = tpl[i];
+    var illo = '<div class="illo" style="background:color-mix(in srgb, var(' + c + ') 30%, var(--paper))">' +
+      '<svg viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true"><path d="M-10 ' + (180 + i*12) + ' C 100 ' + (90 + i*20) + ', 220 ' + (280 - i*10) + ', 410 ' + (140 + i*8) + '" fill="none" stroke="var(' + colors[(i+2)%colors.length] + ')" stroke-width="5" stroke-linecap="round"/></svg>' +
+      '<span>' + (i === 0 ? t('st_illo_c','Illustrazione di copertina') : t('st_illo','Illustrazione') + ' ' + i) + '</span></div>';
+    var text;
+    if (src.dataset.kind === 'cover') {
+      text = '<div class="cover">' + src.innerHTML + '</div>';
+    } else {
+      text = '<div class="text"><span class="pg">' + t('st_page','Pagina') + ' ' + i + '</span><p class="story">' + t('st_ph','Qui va il testo di questa pagina della storia, scritto dagli studenti.') + '</p></div>';
+    }
+    spread.innerHTML = illo + text;
+    if (window.SiteI18n) SiteI18n.apply(spread);
+    prev.disabled = i === 0; next.disabled = i === n - 1;
+    Array.prototype.forEach.call(dots.children, function(d, k){ d.setAttribute('aria-current', String(k === i)); });
+  }
+  for (var k = 0; k < n; k++) {
+    var d = document.createElement('button');
+    d.type = 'button'; d.setAttribute('aria-label', (k === 0 ? 'Copertina' : 'Pagina ' + k));
+    (function(k){ d.addEventListener('click', function(){ i = k; render(); }); })(k);
+    dots.appendChild(d);
+  }
+  prev.addEventListener('click', function(){ if (i > 0) { i--; render(); } });
+  next.addEventListener('click', function(){ if (i < n - 1) { i++; render(); } });
+  document.addEventListener('keydown', function(e){
+    if (e.target.closest('input,textarea')) return;
+    if (e.key === 'ArrowRight') next.click(); if (e.key === 'ArrowLeft') prev.click();
+  });
+  document.addEventListener('site:lang', render);
+  render();
+})();
+</script>
+</body>
+</html>
