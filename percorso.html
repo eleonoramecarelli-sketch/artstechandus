@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Caveat:wght@600;700&family=Fraunces:opsz,wght@9..144,400;9..144,600&display=swap">
-<link rel="stylesheet" href="assets/style.css?v=20261108b">
+<link rel="stylesheet" href="assets/style.css?v=20261109a">
 <style>
 .head-360{background:color-mix(in srgb, var(--lagoon) 16%, var(--paper))}
 .player{border-radius:18px; background:var(--card); border:2px solid var(--ink); overflow:hidden; min-width:0}
@@ -60,7 +60,7 @@
     <div class="wrap">
       <div class="crumbs"><span class="chip work" data-i18n="wip">In lavorazione</span></div>
       <h1 data-i18n="pc_h">Percorso 360°</h1>
-      <div class="todo"><span data-i18n="pc_lead">Breve introduzione al percorso 360°: luoghi attraversati e come esplorarlo.</span></div>
+      <p class="lead" data-i18n="pc_lead">Questo è un percorso virtuale a 360° tra l'opera «Andando via» di Maria Lai e la chiesa della Solitudine a Nuoro.</p>
     </div>
   </section>
 
@@ -95,19 +95,23 @@
       <div class="stops">
         <article class="stop">
           <div class="stop-top"><span class="pin">1</span><h3 data-i18n="t1">Il portale e la geografia astrale</h3></div>
-          <div class="todo"><span data-i18n="todo_stop">Spazio per il testo della tappa, a cura del gruppo di lavoro.</span></div>
+          <p data-i18n="st1a">«Andando via» è un omaggio a Grazia Deledda e alle donne dei suoi romanzi. Il percorso si apre con un grande portale in cemento, una cornice vuota che accoglie il visitatore; sopra di esso si staglia nel cielo una geografia astrale in ferro battuto. Maria Lai descriveva il portale «come un invito a lasciare le ansie e spaziare in un'altra dimensione».</p>
+          <p data-i18n="st1b">La geografia astrale richiama le «Geografie» di Maria Lai, un ciclo sviluppato soprattutto a partire dagli anni Ottanta: grandi teli in cui fili e ricami disegnano mappe immaginarie, cieli stellati e costellazioni invece di territori reali. Nel 2020 l'installazione è stata reinterpretata in 22 arazzi, tessuti da 25 laboratori tessili sardi ed esposti al Mudec di Milano.</p>
         </article>
         <article class="stop">
           <div class="stop-top"><span class="pin">2</span><h3 data-i18n="t2">Le colonne</h3></div>
-          <div class="todo"><span data-i18n="todo_stop">Spazio per il testo della tappa, a cura del gruppo di lavoro.</span></div>
+          <p data-i18n="st2a">Il titolo «Andando via» significa «andarsene». È l'ultimo progetto pubblico di Maria Lai, un omaggio a cielo aperto a Grazia Deledda, l'unica donna italiana premio Nobel per la letteratura.</p>
+          <p data-i18n="st2b">Invece di un monumento tradizionale, Maria Lai ha scelto un linguaggio moderno: undici piloni in cemento bianco immersi nel verde, poco lontano dalla chiesa della Solitudine. Camminando tra le colonne si ha l'impressione di attraversare un labirinto o un santuario all'aperto, dove a parlare sono soprattutto gli alberi e il vento.</p>
         </article>
         <article class="stop">
           <div class="stop-top"><span class="pin">3</span><h3 data-i18n="t3">Le donne dei romanzi di Grazia Deledda</h3></div>
-          <div class="todo"><span data-i18n="todo_stop">Spazio per il testo della tappa, a cura del gruppo di lavoro.</span></div>
+          <p data-i18n="st3a">Sui piloni compaiono sagome in metallo nero di donne, pastori, capre e telai, che richiamano le protagoniste dei romanzi di Grazia Deledda e il loro mondo. Nella presentazione dell'opera Maria Lai scriveva: «In ogni immagine c'è l'uomo con tutte le sue domande e la sua ansia d'infinito».</p>
+          <p data-i18n="st3b">Maria Lai accostava il lavoro artistico alle attività quotidiane delle donne della sua terra – madri, zie e nonne dedite alla tessitura, al ricamo e all'uncinetto. Per lei il filo non era un semplice strumento domestico, ma un elemento simbolico, capace di ricucire gli strappi, unire le persone e dare forma ai pensieri.</p>
         </article>
         <article class="stop">
           <div class="stop-top"><span class="pin">4</span><h3 data-i18n="t4">Le scritture da immaginare</h3></div>
-          <div class="todo"><span data-i18n="todo_stop">Spazio per il testo della tappa, a cura del gruppo di lavoro.</span></div>
+          <p data-i18n="st4a">Nel cemento dei piloni sono incise scritture che non si possono leggere: segni che ricordano geroglifici o il tracciato di un elettrocardiogramma.</p>
+          <p data-i18n="st4b">Le scritture illeggibili, o asemantiche, attraversano il lavoro di Maria Lai a partire dagli anni Settanta, per esempio nei libri cuciti. Liberata dal significato letterale, la scrittura a mano diventa un segno visivo e tattile: in questo modo l'artista cercava un linguaggio universale, che lasciasse libero il pensiero di chi guarda.</p>
         </article>
       </div>
       <nav class="pager" aria-label="Pagine">
@@ -120,7 +124,7 @@
 
 <div id="site-footer"></div>
 <script src="player/main.bundle.js"></script>
-<script src="assets/site.js?v=20261108b"></script>
+<script src="assets/site.js?v=20261109a"></script>
 <script>
 function hasWebGL(){
   try { var c = document.createElement('canvas'); return !!(window.WebGLRenderingContext && (c.getContext('webgl') || c.getContext('experimental-webgl'))); }
