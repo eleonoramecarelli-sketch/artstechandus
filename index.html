@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Caveat:wght@600;700&family=Fraunces:opsz,wght@9..144,400;9..144,600&display=swap">
-<link rel="stylesheet" href="assets/style.css?v=20261109a">
+<link rel="stylesheet" href="assets/style.css?v=20261109b">
 <style>
 /* Home: testata a toppe cucite, etichetta di stoffa per la citazione, schede come pezze colorate */
 .home-head{background:color-mix(in srgb, var(--sky) 20%, var(--paper))}
@@ -112,6 +112,9 @@
 .proj-side .steps{grid-template-columns:1fr 1fr; margin-top:.2rem}
 @media (max-width: 520px){ .proj-side .steps{grid-template-columns:1fr} }
 @media (max-width: 520px){ .map figcaption span:last-child{display:none} }
+.video-box{border-radius:18px; border:2px solid var(--ink); box-shadow:6px 6px 0 var(--ink); overflow:hidden; background:#000; aspect-ratio:16/9; max-width:52rem}
+.video-box iframe{display:block; width:100%; height:100%; border:0}
+.video-link{font-weight:800; color:var(--coral)}
 </style>
 </head>
 <body>
@@ -153,6 +156,17 @@
           <span class="kicker muted" data-i18n="o_f5">Le figure sulle colonne</span>
           <div class="names"><span>Cosima</span><span>Maria Noina</span><span>Olì</span><span>Marianna Sirca</span><span data-i18n="o_n1">le dame Pintor</span><span data-i18n="o_n2">la Madre</span><span>Annesa</span></div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="video">
+    <div class="wrap">
+      <div class="prose" style="max-width:52rem">
+        <span class="kicker" style="color:var(--violet)" data-i18n="v_k">Video</span>
+        <h2 data-i18n="v_h">Guarda il video</h2>
+        <div class="video-box"><iframe src="https://www.youtube-nocookie.com/embed/BsroVFXpOUY" title="Video YouTube" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+        <p><a class="video-link" href="https://www.youtube.com/watch?v=BsroVFXpOUY" target="_blank" rel="noopener" data-i18n="v_link">Apri il video su YouTube ↗</a></p>
       </div>
     </div>
   </section>
@@ -254,7 +268,7 @@
 </main>
 
 <div id="site-footer"></div>
-<script src="assets/site.js?v=20261109a"></script>
+<script src="assets/site.js?v=20261109b"></script>
 
 </body>
 </html>
