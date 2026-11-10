@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Caveat:wght@600;700&family=Fraunces:opsz,wght@9..144,400;9..144,600&display=swap">
-<link rel="stylesheet" href="assets/style.css?v=20261109d">
+<link rel="stylesheet" href="assets/style.css?v=20261110a">
 <style>
 .head-audio{background:color-mix(in srgb, var(--violet) 16%, var(--paper))}
 .listen{display:grid; grid-template-columns:1.2fr 1fr; gap:1.2rem; align-items:start}
@@ -29,6 +29,13 @@
 .chapters li:nth-child(4) .num{background:var(--sun); color:var(--sun-ink)}
 .chapters time{font-variant-numeric:tabular-nums; font-weight:800; color:var(--ink-soft); font-size:.9rem}
 .transcript{display:flex; flex-direction:column; gap:1rem; max-width:46rem}
+.chapters .ch-btn{all:unset; box-sizing:border-box; width:100%; display:grid; grid-template-columns:auto 1fr auto; gap:.8rem; align-items:center; cursor:pointer}
+.chapters li{display:block}
+.chapters li.on{border-color:var(--violet); background:color-mix(in srgb, var(--violet) 12%, var(--card))}
+.chapters li.off{opacity:.5}
+.chapters li.off .ch-btn{cursor:default}
+.chapters .ch-btn:focus-visible{outline:3px solid var(--sun); outline-offset:6px; border-radius:6px}
+.tr p{margin:0 0 .9rem}
 </style>
 </head>
 <body>
@@ -40,7 +47,7 @@
     <div class="wrap">
       <div class="crumbs"><span class="chip work" data-i18n="wip">In lavorazione</span></div>
       <h1 data-i18n="ra_h">Racconto su Maria Lai</h1>
-      <div class="todo"><span data-i18n="ra_lead">Presentazione del racconto registrato: argomento, voci e durata.</span></div>
+      <p class="lead" data-i18n="ra_lead">Un racconto registrato dagli studenti in italiano, francese e inglese: la vita di Maria Lai, i suoi studi, la sua arte e «Legarsi alla montagna». Dura circa quattro minuti.</p>
     </div>
   </section>
 
@@ -48,10 +55,9 @@
     <div class="wrap listen">
       <div class="deck">
         <span class="kicker" data-i18n="ra_k">Narrazione registrata</span>
-        <h2 data-i18n="ra_title">Titolo della narrazione</h2>
+        <h2 data-i18n="ra_title">Maria Lai: la vita, l'arte, la montagna</h2>
         <div class="wave" aria-hidden="true" id="wave"></div>
-        <!-- Caricare il file audio in audio/narrazione.mp3 -->
-        <audio id="audio" controls preload="metadata" src="audio/narrazione.mp3"></audio>
+        <audio id="audio" controls preload="metadata" src="audio/racconto-it.mp3"></audio>
         <p class="status" id="audio-status" hidden data-i18n="ra_missing">La registrazione non è ancora stata caricata. Comparirà qui appena pronta.</p>
       </div>
       <div>
@@ -59,12 +65,13 @@
           <span class="kicker" style="color:var(--violet)" data-i18n="ra_ck">Capitoli</span>
         </div>
         <ol class="chapters">
-          <li><span class="num">1</span><span data-i18n="chap">Titolo del capitolo</span><time>--:--</time></li>
-          <li><span class="num">2</span><span data-i18n="chap">Titolo del capitolo</span><time>--:--</time></li>
-          <li><span class="num">3</span><span data-i18n="chap">Titolo del capitolo</span><time>--:--</time></li>
-          <li><span class="num">4</span><span data-i18n="chap">Titolo del capitolo</span><time>--:--</time></li>
+          <li data-ch="0"><button type="button" class="ch-btn"><span class="num">1</span><span data-i18n="ra_c1">Vita</span><time>--:--</time></button></li>
+          <li data-ch="1"><button type="button" class="ch-btn"><span class="num">2</span><span data-i18n="ra_c2">Carriera</span><time>--:--</time></button></li>
+          <li data-ch="2"><button type="button" class="ch-btn"><span class="num">3</span><span data-i18n="ra_c3">Arte</span><time>--:--</time></button></li>
+          <li data-ch="3"><button type="button" class="ch-btn"><span class="num">4</span><span data-i18n="ra_c4">Legarsi alla montagna</span><time>--:--</time></button></li>
         </ol>
-        <p class="muted" style="font-size:.88rem; margin-top:.8rem" data-i18n="ra_cnote">Titoli e durate dei capitoli sono provvisori: li definiscono gli studenti con il montaggio finale.</p>
+        <p class="muted" style="font-size:.88rem; margin-top:.8rem" data-i18n="ra_cnote">Clicca su un capitolo per ascoltarlo da lì.</p>
+        <p class="muted" style="font-size:.88rem" id="en-missing" hidden data-i18n="ra_en1">The English recording of chapter 1 is not available yet.</p>
       </div>
     </div>
   </section>
@@ -74,9 +81,46 @@
       <div class="transcript">
         <span class="kicker" style="color:var(--coral)" data-i18n="ra_tk">Trascrizione</span>
         <h2 data-i18n="ra_th">Il testo del racconto</h2>
-        <div class="todo"><span data-i18n="ra_todo">Spazio per la trascrizione completa della narrazione, a cura degli studenti.</span></div>
+        <div class="tr" lang="it" data-tr="it">
+          <p>1-(Vita) Maria Lai fu un’artista estremamente innovativa per il suo tempo; una donna indipendente con un legame profondo verso la sua terra d’origine. Nata nel 1919 a Ulassai da una famiglia benestante, fu la seconda di cinque figli e, purtroppo, durante l’infanzia dovette affrontare numerosi problemi di salute. Cresciuta dagli zii, sviluppò precocemente una passione per l’arte: da bambina osservava la nonna rammendare le lenzuola e, per Maria, quei punti di cucitura apparivano come parole, che lei utilizzava per inventare storie.</p>
+          <p>2-(Carriera) A differenza di molte coetanee dell’epoca, ebbe l’opportunità di studiare; si trasferì a Cagliari, dove conobbe Salvatore Cambosu, figura che divenne una grande fonte di ispirazione per la sua arte. Nel 1940 si trasferì a Roma per frequentare il liceo artistico, per poi proseguire gli studi all’Accademia di Belle Arti di Venezia, dove studiò scultura, era unica donna tra gli studenti del corso. Dopo un periodo trascorso tra Venezia e Verona, fece ritorno in Sardegna. Dal 1946 fino al 1949, insegnò presso l’Istituto Tecnico Femminile di Cagliari. Nel 1957 tenne la sua prima mostra indipendente presso la Galleria dell’Obelisco.</p>
+          <p>3-(Arte) La sua produzione artistica si avvale di materiali poveri e organici – come legno, tessuti, fili e persino pane – ispirandosi spesso ai racconti popolari sardi e agli elementi tradizionali. Nei suoi lavori ricorrono figure come donne e caprette, accanto a scritture asemantiche. Le tematiche affrontate sono strettamente legate al concetto di infinito e di un vagabondare incessante. Tra le opere più significative di Maria Lai vi è il ciclo dei “Telai”: oggetti tradizionalmente associati al lavoro artigianale femminile, qui privati ​​della loro funzione pratica e trasformati in creazioni ricche di simbolismi e richiami arcaici. «Libri cuciti», realizzati in tessuto e carta, in cui il filo si trasforma in una scrittura illeggibile o in parte di un alfabeto immaginario. «Geografie», cartografie tessili immaginarie che evocano cieli e visioni cosmiche.</p>
+          <p>«Legarsi alla montagna»: questo è, in assoluto, il progetto più celebre e imponente dell’artista.</p>
+          <p>Si tratta di un’installazione collettiva che ha avuto luogo a Ulassai l’8 settembre 1981.</p>
+          <p>L’intera comunità vi ha preso parte: 26 chilometri di nastro azzurro in denim riciclato, stati srotolati attraverso il paese, collegando case, strade e persone alla montagna sovrastante. L’intera popolazione, dai bambini agli anziani, ha partecipato a questo rito collettivo.</p>
+          <p>Quest’opera è considerata uno dei primi esempi di «arte relazionale» in Italia.</p>
+          <p>Maria Lai era stata incaricata dall’amministrazione comunale di realizzare un monumento ai caduti, ma scelse invece di creare un evento dedicato ai vivi, ispirandosi a una leggenda locale: una bambina, incaricata a portare il pane ai pastori, trova riparo in una grotta durante un temporale e viene salvata miracolosamente da un nastro azzurro trasportato dal vento.</p>
+          <p>Questo è stato il primo di una lunga serie di progetti realizzati a Ulassai tra gli anni Ottanta e gli anni Duemila, culminati nel 2006 con l’apertura della «Stazione dell’arte», il museo che oggi custodisce oltre cento opere donate da Maria Lai alla sua comunità.</p>
+        </div>
+        <div class="tr" lang="fr" data-tr="fr" hidden>
+          <p>1-(Vie) Maria Lai était une artiste très novatrice pour son époque: c’était une femme indépendante, qui entretenait un lien profond avec sa terre natale. Née en 1919 à Ulassai au sein d’une famille aisée, elle était la deuxième d’une fraterie de cinq enfants. Elle connut durant son enfance des problèmes de santé récurrents. Élevée par son oncle et sa tante, elle se passionna très tôt pour l’art, enfant, elle observait sa grand-mère raccomoder des draps. Pour elle, les points de couture ressemblaient à des mots qui lui servaient de base pour inventer des histoires.</p>
+          <p>2-(Parcours) Contrairement à beaucoup de jeunes filles de son époque, elle eut la chance de pouvoir faire des études. Elle fut envoyée à Cagliari, où elle rencontra Salvatore Cambosu, qui devint une source d’inspiration majeure pour son travail artistique. En 1940, elle partit pour Rome afin de suivre un cursus dans un lycée artistique, puis alla à Venise pour étudier la sculpture à l’Académie des beaux-arts, où elle était la seule étudiante. Après des séjours à Venise et à Vérone, elle retourna en Sardaigne. L’année suivante, elle commença à enseigner à l’« Istituto tecnico femminile » (Institut technique féminin) de Cagliari, poste qu’elle occupa jusqu’en 1949. En 1957, elle fit sa première exposition personnelle à la Galleria dell’Obelisco.</p>
+          <p>3-(Art) Son œuvre se caractérise par l’utilisation de matériaux organiques « pauvres » comme du bois, du tissus, du fils, voir meme du pain. Elle puise souvent son inspiration dans les contes et traditions de Sardaigne. Elle y représente fréquemment des femmes, des chèvres ainsi que des écritures asémantiques. Ses thématiques sont étroitement liées aux concepts d’infini et d’errance perpétuelle. Parmi ses créations les plus emblématiques figurent les « Telai » (métiers à tisser) : des objets associés au savoir-faire féminin, dépouillés de leur fonction utilitaire et transformés en œuvres riches en symbolisme et en références archaïques. « Libri cuciti » (Livres cousus), réalisés en tissu et en papier, où le fil se transforme en une écriture illisible ou en un élément d’un alphabet imaginaire. « Geografie » (Géographies), des cartographies textiles imaginaires qui évoquent des ciels et une vision cosmique.</p>
+          <p>« Legarsi alla montagna » (Se lier à la montagne) : son projet le plus célèbre et le plus vaste.</p>
+          <p>Il s’agit d’une installation collective qui a eu lieu dans la commune d’Ulassai, le 8 septembre 1981.</p>
+          <p>Toute la communauté y a pris part : 26 kilomètres de ruban bleu azur ont été déroulés à travers le village, reliant les maisons, les rues et les habitants à la montagne qui le surplombe. L’ensemble de la population, des enfants aux personnes âgées, a participé à ce rituel collectif.</p>
+          <p>Cette œuvre est considérée comme l’un des premiers exemples d’« art relationnel » en Italie.</p>
+          <p>Maria Lai avait été sollicitée par la municipalité pour créer un monument aux morts ; elle a préféré concevoir un événement dédié aux vivants, inspiré d’un conte local : une jeune fille, envoyée porter du pain aux bergers, se réfugie dans une grotte pendant une tempête et est miraculeusement sauvée grâce à un ruban bleu apporté par le vent.</p>
+          <p>Ce projet fut le premier d’une longue série menée à Ulassai au cours des années 1980 et 2000, aboutissant en 2006 à l’ouverture de la « Stazione dell’arte », un musée qui conserve aujourd’hui plus d’une centaine d’œuvres offertes par Maria Lai à sa communauté.</p>
+        </div>
+        <div class="tr" lang="en" data-tr="en" hidden>
+          <p>1-(Life) Maria Lai was a very innovative artist for her time, she was an independent woman with a strong connection to her motherland. She was born in 1919 in Ulassai, from wealthy parents, she was the second of five children and sadly had many health problems as a child. She was raised by her aunt and uncle, and developed early on a passion for art, when she was little she watched her grandmother mend sheets, to Maria the stitches looked like words that she used to invent stories about.</p>
+          <p>2-(Carrer)  She was allowed to study, unlike many girls of her time, and was sent to Cagliari where she met Salvatore Cambosu, who was a great inspiration to her art. In 1940 she went to Rome to attend the Art High school, and then to Venice to attend the Academy of fine arts, where she studied sculpture, in which she was the only female student. In 1945 she went back to Venice, Verona, then came back to Sardinia. The following year she started teaching in the “Istituto tecnico femminile” of Cagliari, up until 1949.</p>
+          <p>She had her first solo exhibition in 1957 in the Galleria dell’Obelisco.</p>
+          <p>3-(Art) Her art was made using poor organic material, such as wood, fabric,thread, and even bread. And was often inspired by Sardinian tales and tradition.</p>
+          <p>She often represented women, goats, and asemantic writings.</p>
+          <p>Her themes were connected to the concept of infinite and constant wandering.</p>
+          <p>Maria’s most important works are the collections .”Telai” (Looms), objects associated with women’s craftsmanship, stripped of their practical function and transformed into works rich in symbolisms and archaic references. “Libri cuciti’ (Stitched Books), made of fabric and paper, where the thread becomes illegible writing or part of an imaginary alphabet. “Geografie” (Geographies), imaginary textile cartographies that evoke skies and cosmic vision.</p>
+          <p>4 (Legarsi alla montagna) But her overall most famous and biggest project is ‘Legarsi alla montagna’ (To tie oneself to the mountain).</p>
+          <p>It’s a collective installation that took place in the town of Ulassai on the 8th of September 1981.</p>
+          <p>The entire community was part of it, 26 kilometers of sky-blue ribbon were unrolled through the whole village, connecting houses, streets and people, to the mountain above. The entire community, from children to the elderly, took part in this collective ritual.</p>
+          <p>It is considered one of the first examples of “relational art” in Italy.</p>
+          <p>Maria Lai had been asked by the town council to create a war memorial, but instead she chose to make an event dedicated to the living, inspired by a local fairy tale: a young girl sent to bring bread to the shepherds takes shelter in a cave during a storm, and is miraculously saved by a blue ribbon carried by the wind.</p>
+          <p>This was the first of a long series of projects in Ulassai in the 1980s and 2000s, culminating in 2006 with the opening of the “Stazione dell’arte”, the museum that today preserves more than one hundred of her works donated by Maria Lai to her community.</p>
+        </div>
+
         <h3 style="margin-top:1rem" data-i18n="ra_voices">Le voci</h3>
-        <div class="todo"><span data-i18n="ra_todo2">Spazio per i nomi di chi ha scritto, letto e montato la registrazione.</span></div>
+        <p data-i18n="ra_cred">Testi e voci: studenti del gruppo 3 del progetto Erasmus+ Arts, Tech and Us (IIS Francesco Ciusa, Nuoro – Lycée Félix Le Dantec, Lannion).</p>
       </div>
       <nav class="pager" aria-label="Pagine">
         <a href="storia.html"><span data-i18n="prev">Pagina precedente</span><b data-i18n="nav_storia">Storia per bambini</b></a>
@@ -87,7 +131,7 @@
 </main>
 
 <div id="site-footer"></div>
-<script src="assets/site.js?v=20261109d"></script>
+<script src="assets/site.js?v=20261110a"></script>
 <script>
 (function(){
   var w = document.getElementById('wave');
@@ -98,6 +142,38 @@
   }
   var a = document.getElementById('audio'), s = document.getElementById('audio-status');
   a.addEventListener('error', function(){ a.hidden = true; s.hidden = false; });
+  var DATA = {"it": {"starts": [0, 33.1, 74.1, 138.3], "total": 205.6}, "fr": {"starts": [0, 33.6, 83.1, 148.1], "total": 226.3}, "en": {"starts": [null, 0, 54.1, 105.1], "total": 190.5}};
+  var items = document.querySelectorAll('.chapters li'), cur = 'it';
+  function fmt(t){ var m = Math.floor(t / 60), x = Math.round(t % 60); if (x === 60) { m++; x = 0; } return m + ':' + (x < 10 ? '0' : '') + x; }
+  function setLang(l){
+    if (!DATA[l]) l = 'it';
+    var keep = !a.paused;
+    cur = l; a.hidden = false; s.hidden = true;
+    a.src = 'audio/racconto-' + l + '.mp3';
+    DATA[l].starts.forEach(function(t, k){
+      var li = items[k];
+      li.classList.toggle('off', t === null);
+      li.querySelector('time').textContent = t === null ? '—' : fmt(t);
+      li.querySelector('button').disabled = t === null;
+    });
+    document.getElementById('en-missing').hidden = (l !== 'en');
+    document.querySelectorAll('[data-tr]').forEach(function(d){ d.hidden = d.getAttribute('data-tr') !== l; });
+    if (keep) a.play().catch(function(){});
+  }
+  items.forEach(function(li, k){
+    li.querySelector('button').addEventListener('click', function(){
+      var t = DATA[cur].starts[k]; if (t === null) return;
+      a.currentTime = t; a.play().catch(function(){});
+    });
+  });
+  a.addEventListener('timeupdate', function(){
+    var st = DATA[cur].starts, on = -1;
+    st.forEach(function(t, k){ if (t !== null && a.currentTime >= t - 0.05) on = k; });
+    items.forEach(function(li, k){ li.classList.toggle('on', k === on && !a.paused); });
+  });
+  a.addEventListener('pause', function(){ items.forEach(function(li){ li.classList.remove('on'); }); });
+  document.addEventListener('site:lang', function(e){ setLang(e.detail); });
+  setLang((window.SiteI18n && SiteI18n.lang && SiteI18n.lang()) || 'it');
 })();
 </script>
 </body>
