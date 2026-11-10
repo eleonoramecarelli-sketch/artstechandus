@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Caveat:wght@600;700&family=Fraunces:opsz,wght@9..144,400;9..144,600&display=swap">
-<link rel="stylesheet" href="assets/style.css?v=20261110b">
+<link rel="stylesheet" href="assets/style.css?v=20261110c">
 <style>
 .head-artist{background:color-mix(in srgb, var(--coral) 16%, var(--paper))}
 .motto{font-family:var(--font-story); font-size:clamp(1.3rem,3vw,1.8rem); color:var(--coral); font-style:italic}
@@ -36,6 +36,10 @@
 .src{margin:0; padding-left:1.2rem; display:flex; flex-direction:column; gap:.35rem}
 .src a{color:var(--coral); font-weight:700}
 .parts p{margin:0}
+.portrait{margin:1rem 1.2rem 0}
+.portrait img{display:block; width:100%; height:auto; border-radius:12px; border:2px solid var(--line)}
+.portrait figcaption{font-size:.75rem; color:var(--ink-soft); margin-top:.4rem; line-height:1.35}
+.portrait a{color:inherit}
 </style>
 </head>
 <body>
@@ -56,7 +60,10 @@
     <div class="wrap layout">
       <aside class="id-card" aria-label="Carta d'identità">
         <header><span class="kicker" data-i18n="ar_id">Carta d'identità</span><h2>Maria Lai</h2></header>
-        <div class="photo" data-i18n="ar_photo">Spazio per un ritratto dell'artista (con i diritti d'uso verificati)</div>
+        <figure class="portrait">
+          <img src="assets/img/maria-lai.jpg" width="648" height="810" alt="Ritratto di Maria Lai, anziana, con i capelli grigi e un abito scuro">
+          <figcaption><span data-i18n="ar_pcap">Foto ritagliata da</span> <a href="https://commons.wikimedia.org/wiki/File:Maria_lai_da_Ulassai.JPG" target="_blank" rel="noopener">«Maria lai da Ulassai.JPG»</a>, Wikimedia Commons</figcaption>
+        </figure>
         <dl>
           <dt data-i18n="ar_born">Nascita</dt><dd data-i18n="ar_born_v">27 settembre 1919, Ulassai</dd>
           <dt data-i18n="ar_died">Morte</dt><dd data-i18n="ar_died_v">16 aprile 2013, Cardedu</dd>
@@ -121,6 +128,14 @@
 </main>
 
 <div id="site-footer"></div>
-<script src="assets/site.js?v=20261110b"></script>
+<script src="assets/site.js?v=20261110c"></script>
+<script>
+(function(){
+  var img = document.querySelector('.portrait img'), it = img.alt;
+  function upd(l){ img.alt = (l && l !== 'it' && window.SiteI18n && SiteI18n.t('ar_alt')) || it; }
+  document.addEventListener('site:lang', function(e){ upd(e.detail); });
+  upd(window.SiteI18n && SiteI18n.lang && SiteI18n.lang());
+})();
+</script>
 </body>
 </html>
