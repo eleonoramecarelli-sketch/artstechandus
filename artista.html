@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Caveat:wght@600;700&family=Fraunces:opsz,wght@9..144,400;9..144,600&display=swap">
-<link rel="stylesheet" href="assets/style.css?v=20261110a">
+<link rel="stylesheet" href="assets/style.css?v=20261110b">
 <style>
 .head-artist{background:color-mix(in srgb, var(--coral) 16%, var(--paper))}
 .motto{font-family:var(--font-story); font-size:clamp(1.3rem,3vw,1.8rem); color:var(--coral); font-style:italic}
@@ -33,6 +33,9 @@
 .part{display:flex; flex-direction:column; gap:.9rem}
 .part h3{font-size:1.25rem}
 .note{font-size:.85rem; color:var(--ink-soft)}
+.src{margin:0; padding-left:1.2rem; display:flex; flex-direction:column; gap:.35rem}
+.src a{color:var(--coral); font-weight:700}
+.parts p{margin:0}
 </style>
 </head>
 <body>
@@ -45,7 +48,7 @@
       <div class="crumbs"><span class="chip work" data-i18n="wip">In lavorazione</span></div>
       <h1>Maria Lai</h1>
       <p class="motto" data-i18n="ar_motto">«Essere è tessere»</p>
-      <div class="todo"><span data-i18n="ar_lead">Breve presentazione dell'artista (2–3 righe).</span></div>
+      <p class="lead" data-i18n="ar_lead">Maria Lai è stata una donna innovativa e un’artista capace di parlare a tutte le generazioni. Riservata e amante della solitudine, ha creato le sue opere con materiali della vita quotidiana. Le piaceva rappresentare la vita quotidiana delle donne, per metterla in luce.</p>
     </div>
   </section>
 
@@ -55,39 +58,56 @@
         <header><span class="kicker" data-i18n="ar_id">Carta d'identità</span><h2>Maria Lai</h2></header>
         <div class="photo" data-i18n="ar_photo">Spazio per un ritratto dell'artista (con i diritti d'uso verificati)</div>
         <dl>
-          <dt data-i18n="ar_born">Nascita</dt><dd class="muted" data-i18n="fill">Da compilare</dd>
-          <dt data-i18n="ar_died">Morte</dt><dd class="muted" data-i18n="fill">Da compilare</dd>
-          <dt data-i18n="ar_study">Studi</dt><dd class="muted" data-i18n="fill">Da compilare</dd>
-          <dt data-i18n="ar_mat">Materiali</dt><dd class="muted" data-i18n="fill">Da compilare</dd>
-          <dt data-i18n="ar_mus">Museo</dt><dd class="muted" data-i18n="fill">Da compilare</dd>
+          <dt data-i18n="ar_born">Nascita</dt><dd data-i18n="ar_born_v">27 settembre 1919, Ulassai</dd>
+          <dt data-i18n="ar_died">Morte</dt><dd data-i18n="ar_died_v">16 aprile 2013, Cardedu</dd>
+          <dt data-i18n="ar_study">Studi</dt><dd data-i18n="ar_study_v">Cagliari, Roma e Venezia</dd>
+          <dt data-i18n="ar_mat">Materiali</dt><dd data-i18n="ar_mat_v">stoffe, fili, pane, legno, terracotta e altri materiali poveri</dd>
+          <dt data-i18n="ar_mus">Museo</dt><dd data-i18n="ar_mus_v">Museo a cielo aperto «Maria Lai» e Stazione dell’arte, a Ulassai</dd>
         </dl>
       </aside>
 
       <div class="parts">
         <div class="part">
           <span class="kicker" style="color:var(--coral)" data-i18n="ar_tlk">Le date principali</span>
-          <div class="todo"><span data-i18n="ar_tl">Linea del tempo: le date principali della vita e delle opere di Maria Lai, ciascuna con una breve descrizione.</span></div>
+          <ol class="tl">
+            <li><b>1932</b><span data-i18n="g4t0">Frequenta l’Istituto Magistrale di Cagliari, dove incontra Salvatore Cambosu.</span></li>
+            <li><b>1939</b><span data-i18n="g4t1">Frequenta il liceo artistico a Roma.</span></li>
+            <li><b>1946-49</b><span data-i18n="g4t2">Insegna presso l’Istituto Tecnico femminile di Cagliari, dove espone le sue opere.</span></li>
+            <li><b>1959-69</b><span data-i18n="g4t3">Sperimenta un nuovo tipo di arte: nascono i «Telai» e i «Pani».</span></li>
+            <li><b>1979</b><span data-i18n="g4t4">Realizza il suo primo intervento ambientale, «La casa cucita», a Selargius.</span></li>
+            <li><b>1984</b><span data-i18n="g4t5">Realizza a Orotelli «L’alveare del poeta», dedicato a Salvatore Cambosu.</span></li>
+            <li><b>1994</b><span data-i18n="g4t6">La mostra più importante, «Inventare altri spazi», alle Scuderie di Palazzo Ruspoli a Roma; poi lascia Roma.</span></li>
+            <li><b>2002</b><span data-i18n="g4t7">Realizza una serie di opere: «I pensieri sull’arte» a Ulassai (2002), «Il muro del groviglio» a Porto Frailis (2004), «La casa delle inquietudini» a Ulassai (2005).</span></li>
+            <li><b>2004</b><span data-i18n="g4t8">Riceve la laurea honoris causa in Lettere dall’Università di Cagliari.</span></li>
+          </ol>
         </div>
 
         <div class="part">
           <h3 data-i18n="ar_s1">Chi era Maria Lai</h3>
-          <div class="todo"><span data-i18n="ar_todo">Spazio per il testo degli studenti.</span></div>
+          <p data-i18n="g4s1">Maria Lai è stata una celebre artista italiana, tra le figure più originali e poetiche dell’arte contemporanea del Novecento. Nata in Ogliastra, vi trascorse un’infanzia solitaria, a stretto contatto con la natura e le tradizioni della sua terra. Frequentò l’Accademia di Belle Arti di Venezia e visse a lungo a Roma. Era guidata da una profonda spiritualità laica, da una sensibilità acutissima per l’invisibile e da una costante ricerca di libertà interiore.</p>
         </div>
         <div class="part">
-          <h3 data-i18n="ar_s2">Il filo, il telaio e i libri cuciti</h3>
-          <div class="todo"><span data-i18n="ar_todo">Spazio per il testo degli studenti.</span></div>
+          <h3 data-i18n="ar_s2">Fili, telai e libri cuciti</h3>
+          <p data-i18n="g4s2">L’artista sarda ha reinterpretato la tradizione tessile, trasformando fili, telai e libri cuciti in simboli universali per ricucire il mondo, unire le persone e tessere pensieri, fiabe e memorie attraverso l’arte.</p>
         </div>
         <div class="part">
-          <h3 data-i18n="ar_s3">L'arte che coinvolge le persone</h3>
-          <div class="todo"><span data-i18n="ar_todo">Spazio per il testo degli studenti.</span></div>
+          <h3 data-i18n="ar_s3">Arte che coinvolge le persone</h3>
+          <p data-i18n="g4s3">Rappresenta il visibile e l’invisibile e mira a riunire le persone. Da bambina era spesso malata; per questo ha voluto che le persone emarginate venissero valorizzate. Esistono diverse forme di invisibilità, che riguardano, ad esempio, le persone con disabilità o le donne.</p>
         </div>
         <div class="part">
           <h3 data-i18n="ar_s4">"Andando via" e Grazia Deledda</h3>
-          <div class="todo"><span data-i18n="ar_todo">Spazio per il testo degli studenti.</span></div>
+          <p data-i18n="g4s4">Ha creato «Andando via», opera realizzata in onore di Grazia Deledda. Accanto alla chiesa della Solitudine, dove si trova la tomba di Grazia Deledda, sorge la sua opera, caratterizzata da numerosi pilastri; attraverso di essi Maria Lai rivolge l’invito a distaccarsi dalle ansie quotidiane per entrare in una dimensione di pace e di riflessione spirituale.</p>
         </div>
         <div class="part">
           <h3 data-i18n="ar_s5">Fonti</h3>
-          <div class="todo"><span data-i18n="ar_todo_src">Spazio per l'elenco delle fonti consultate dagli studenti.</span></div>
+          <ul class="src">
+            <li data-i18n="g4src0">pannelli introduttivi del museo</li>
+            <li><a href="https://www.andandovia.it" target="_blank" rel="noopener">andandovia.it</a></li>
+            <li><a href="https://www.fondazionemarialai.it" target="_blank" rel="noopener">fondazionemarialai.it</a></li>
+            <li><a href="https://www.stazionedellarte.com" target="_blank" rel="noopener">stazionedellarte.com</a></li>
+            <li><a href="https://www.treccani.it" target="_blank" rel="noopener">treccani.it</a></li>
+            <li><a href="https://www.distrettoculturaledelnuorese.it" target="_blank" rel="noopener">distrettoculturaledelnuorese.it</a></li>
+          </ul>
         </div>
       </div>
     </div>
@@ -101,6 +121,6 @@
 </main>
 
 <div id="site-footer"></div>
-<script src="assets/site.js?v=20261110a"></script>
+<script src="assets/site.js?v=20261110b"></script>
 </body>
 </html>
