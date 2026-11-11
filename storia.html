@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Caveat:wght@600;700&family=Fraunces:opsz,wght@9..144,400;9..144,600&display=swap">
-<link rel="stylesheet" href="assets/style.css?v=20261111a">
+<link rel="stylesheet" href="assets/style.css?v=20261111b">
 <style>
 .head-story{background:color-mix(in srgb, var(--sun) 26%, var(--paper))}
 .book{
@@ -36,6 +36,9 @@
 .credits-box{display:grid; grid-template-columns:repeat(3,1fr); gap:1rem}
 @media (max-width: 760px){ .credits-box{grid-template-columns:1fr} }
 .credits-box div{display:flex; flex-direction:column; gap:.5rem}
+.illo.has-img{padding:0; min-height:0}
+.illo.has-img img{display:block; width:100%; height:100%; max-height:34rem; object-fit:contain}
+.spread{align-items:stretch}
 </style>
 </head>
 <body>
@@ -71,7 +74,7 @@
       </div>
       <div class="credits-box">
         <div><h3 data-i18n="st_c1">Testo</h3><p data-i18n="st_cred">Studenti del gruppo 2</p></div>
-        <div><h3 data-i18n="st_c2">Illustrazioni</h3><p class="muted" data-i18n="st_ill">Le illustrazioni sono in preparazione.</p></div>
+        <div><h3 data-i18n="st_c2">Illustrazioni</h3><p data-i18n="st_ill">Studenti del gruppo 2, con l'intelligenza artificiale (Gemini)</p></div>
         <div><h3 data-i18n="st_c3">Traduzioni</h3><p data-i18n="st_cred">Studenti del gruppo 2</p></div>
       </div>
       <nav class="pager" aria-label="Pagine">
@@ -84,18 +87,18 @@
 
 <!-- Modelli delle pagine del libro: sostituire testi e illustrazioni -->
 <template id="pages">
-  <div data-kind="cover"><span data-i18n="st_cover">Copertina</span><h2 data-i18n="st_title">Una fiaba su Maria Lai</h2><p class="muted" data-i18n="st_cover_p">Testo degli studenti del gruppo 2</p></div>
-  <div data-kind="page"><p class="story" data-i18n="st_p1">C'era una volta, in Sardegna, una bambina di nome Maria Lai. Viveva vicino alle montagne, tra case di pietra, pecore e sentieri polverosi. Maria amava disegnare: con il carbone del camino tracciava linee sui muri della cucina. Non sapeva ancora che un giorno quei segni avrebbero riunito storie e persone di tutto il mondo.</p></div>
-  <div data-kind="page"><p class="story" data-i18n="st_p2">Maria crebbe e studiò a Roma e a Venezia. Imparò a scolpire ma, soprattutto, scoprì che l'arte poteva uscire dai musei e abitare le strade, le case e le montagne. Usava materiali semplici: terra, pane, stoffa, ricami e fili. Per lei un filo non serviva solo a cucire: poteva unire le persone come un abbraccio invisibile.</p></div>
-  <div data-kind="page"><p class="story" data-i18n="st_p3">Dopo molti anni Maria tornò in Sardegna. Una notte, dopo aver lavorato fino a tardi nel suo laboratorio, si addormentò. Quando si svegliò, accadde qualcosa di magico: le sue opere avevano preso vita! Le donne di stoffa e le sagome delle capre di metallo si alzarono e le sussurrarono piano: «Ora dobbiamo andare via. È tempo di tornare nella nostra vera casa».</p></div>
-  <div data-kind="page"><p class="story" data-i18n="st_p4">Non le dissero dove andavano né perché. Maria li vide soltanto camminare insieme verso le montagne scure. Temendo che i suoi amici si perdessero nella notte, prese un lungo e robusto gomitolo di filo. Con delicatezza legò le donne e le capre una all'altra, in una lunga fila, e tenne in mano l'estremità del filo magico.</p></div>
-  <div data-kind="page"><p class="story" data-i18n="st_p5">Maria seguì il filo luminoso lungo il sentiero polveroso della montagna. Ai piedi della montagna si aprì all'improvviso un portale misterioso, splendente e bello come un paradiso sopra le stelle. Una dopo l'altra, le creature entrarono in quel luogo caldo e tranquillo. Quando entrò l'ultima capra, il portale si chiuse per sempre e lasciò dietro di sé soltanto la luce silenziosa della luna.</p></div>
-  <div data-kind="page"><p class="story" data-i18n="st_p6">Per molti anni Maria continuò a scolpire e a modellare il metallo, sperando che anche le sue nuove creazioni prendessero vita. Ma il portale misterioso rimase chiuso e la magia non si ripeté mai più. Maria, però, custodì quei bei ricordi nel cuore e continuò a creare arte ogni giorno.</p></div>
-  <div data-kind="page"><p class="story" data-i18n="st_p7">Quando aveva più di novant'anni, Maria realizzò a Nuoro, ai piedi del monte Ortobene, una grande opera per ricordare quella notte incredibile: un portale e alte colonne bianche con le sagome di donne e capre. I suoi amici erano ormai nel loro paradiso magico, ma il lungo filo della loro storia sarebbe rimasto in Sardegna per sempre.</p></div>
+  <div data-img="assets/storia/0.jpg" data-kind="cover"><span data-i18n="st_cover">Copertina</span><h2 data-i18n="st_title">Una fiaba su Maria Lai</h2><p class="muted" data-i18n="st_cover_p">Testo degli studenti del gruppo 2</p></div>
+  <div data-img="assets/storia/1.jpg" data-kind="page"><p class="story" data-i18n="st_p1">C'era una volta, in Sardegna, una bambina di nome Maria Lai. Viveva vicino alle montagne, tra case di pietra, pecore e sentieri polverosi. Maria amava disegnare: con il carbone del camino tracciava linee sui muri della cucina. Non sapeva ancora che un giorno quei segni avrebbero riunito storie e persone di tutto il mondo.</p></div>
+  <div data-img="assets/storia/2.jpg" data-kind="page"><p class="story" data-i18n="st_p2">Maria crebbe e studiò a Roma e a Venezia. Imparò a scolpire ma, soprattutto, scoprì che l'arte poteva uscire dai musei e abitare le strade, le case e le montagne. Usava materiali semplici: terra, pane, stoffa, ricami e fili. Per lei un filo non serviva solo a cucire: poteva unire le persone come un abbraccio invisibile.</p></div>
+  <div data-img="assets/storia/3.jpg" data-kind="page"><p class="story" data-i18n="st_p3">Dopo molti anni Maria tornò in Sardegna. Una notte, dopo aver lavorato fino a tardi nel suo laboratorio, si addormentò. Quando si svegliò, accadde qualcosa di magico: le sue opere avevano preso vita! Le donne di stoffa e le sagome delle capre di metallo si alzarono e le sussurrarono piano: «Ora dobbiamo andare via. È tempo di tornare nella nostra vera casa».</p></div>
+  <div data-img="assets/storia/4.jpg" data-kind="page"><p class="story" data-i18n="st_p4">Non le dissero dove andavano né perché. Maria li vide soltanto camminare insieme verso le montagne scure. Temendo che i suoi amici si perdessero nella notte, prese un lungo e robusto gomitolo di filo. Con delicatezza legò le donne e le capre una all'altra, in una lunga fila, e tenne in mano l'estremità del filo magico.</p></div>
+  <div data-img="assets/storia/5.jpg" data-kind="page"><p class="story" data-i18n="st_p5">Maria seguì il filo luminoso lungo il sentiero polveroso della montagna. Ai piedi della montagna si aprì all'improvviso un portale misterioso, splendente e bello come un paradiso sopra le stelle. Una dopo l'altra, le creature entrarono in quel luogo caldo e tranquillo. Quando entrò l'ultima capra, il portale si chiuse per sempre e lasciò dietro di sé soltanto la luce silenziosa della luna.</p></div>
+  <div data-img="assets/storia/6.jpg" data-kind="page"><p class="story" data-i18n="st_p6">Per molti anni Maria continuò a scolpire e a modellare il metallo, sperando che anche le sue nuove creazioni prendessero vita. Ma il portale misterioso rimase chiuso e la magia non si ripeté mai più. Maria, però, custodì quei bei ricordi nel cuore e continuò a creare arte ogni giorno.</p></div>
+  <div data-img="assets/storia/7.jpg" data-kind="page"><p class="story" data-i18n="st_p7">Quando aveva più di novant'anni, Maria realizzò a Nuoro, ai piedi del monte Ortobene, una grande opera per ricordare quella notte incredibile: un portale e alte colonne bianche con le sagome di donne e capre. I suoi amici erano ormai nel loro paradiso magico, ma il lungo filo della loro storia sarebbe rimasto in Sardegna per sempre.</p></div>
 </template>
 
 <div id="site-footer"></div>
-<script src="assets/site.js?v=20261111a"></script>
+<script src="assets/site.js?v=20261111b"></script>
 <script>
 (function(){
   var colors = ['--sun','--coral','--lagoon','--violet','--leaf','--sky'];
@@ -107,9 +110,9 @@
   function render(){
     var c = colors[i % colors.length];
     var src = tpl[i];
-    var illo = '<div class="illo" style="background:color-mix(in srgb, var(' + c + ') 30%, var(--paper))">' +
-      '<svg viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true"><path d="M-10 ' + (180 + i*12) + ' C 100 ' + (90 + i*20) + ', 220 ' + (280 - i*10) + ', 410 ' + (140 + i*8) + '" fill="none" stroke="var(' + colors[(i+2)%colors.length] + ')" stroke-width="5" stroke-linecap="round"/></svg>' +
-      '<span>' + (i === 0 ? t('st_illo_c','Illustrazione di copertina') : t('st_illo','Illustrazione') + ' ' + i) + '</span></div>';
+    var illo = src.dataset.img
+      ? '<div class="illo has-img" style="background:color-mix(in srgb, var(' + c + ') 22%, var(--paper))"><img src="' + src.dataset.img + '" alt="" loading="lazy"></div>'
+      : '<div class="illo" style="background:color-mix(in srgb, var(' + c + ') 30%, var(--paper))"><span>' + t('st_illo','Illustrazione') + ' ' + i + '</span></div>';
     var text;
     if (src.dataset.kind === 'cover') {
       text = '<div class="cover">' + src.innerHTML + '</div>';
@@ -133,6 +136,7 @@
     if (e.target.closest('input,textarea')) return;
     if (e.key === 'ArrowRight') next.click(); if (e.key === 'ArrowLeft') prev.click();
   });
+  Array.prototype.forEach.call(tpl, function(d){ if (d.dataset.img) { var im = new Image(); im.src = d.dataset.img; } });
   document.addEventListener('site:lang', render);
   render();
 })();
