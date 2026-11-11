@@ -57,7 +57,7 @@
         <span class="kicker" data-i18n="ra_k">Narrazione registrata</span>
         <h2 data-i18n="ra_title">Maria Lai: la vita, l'arte, la montagna</h2>
         <div class="wave" aria-hidden="true" id="wave"></div>
-        <audio id="audio" controls preload="metadata" src="audio/racconto-it.mp3?v=3"></audio>
+        <audio id="audio" controls preload="metadata" src="audio/racconto-it.mp3?v=4"></audio>
         <p class="status" id="audio-status" hidden data-i18n="ra_missing">La registrazione non è ancora stata caricata. Comparirà qui appena pronta.</p>
       </div>
       <div>
@@ -142,21 +142,21 @@
   }
   var a = document.getElementById('audio'), s = document.getElementById('audio-status');
   a.addEventListener('error', function(){ a.hidden = true; s.hidden = false; });
-  var DATA = {"it": {"starts": [0, 33.1, 74.1, 138.3], "total": 205.6}, "fr": {"starts": [0, 33.6, 83.1, 148.1], "total": 226.3}, "en": {"starts": [null, 0, 54.1, 105.1], "total": 190.5}};
+  var DATA = {"it": {"starts": [0, 33.1, 74.1, 138.3], "total": 205.6}, "fr": {"starts": [0, 33.6, 83.1, 148.1], "total": 226.3}, "en": {"starts": [0, 38.1, 92.2, 143.3], "total": 228.6}};
   var items = document.querySelectorAll('.chapters li'), cur = 'it';
   function fmt(t){ var m = Math.floor(t / 60), x = Math.round(t % 60); if (x === 60) { m++; x = 0; } return m + ':' + (x < 10 ? '0' : '') + x; }
   function setLang(l){
     if (!DATA[l]) l = 'it';
     var keep = !a.paused;
     cur = l; a.hidden = false; s.hidden = true;
-    a.src = 'audio/racconto-' + l + '.mp3?v=3';
+    a.src = 'audio/racconto-' + l + '.mp3?v=4';
     DATA[l].starts.forEach(function(t, k){
       var li = items[k];
       li.classList.toggle('off', t === null);
       li.querySelector('time').textContent = t === null ? '—' : fmt(t);
       li.querySelector('button').disabled = t === null;
     });
-    document.getElementById('en-missing').hidden = (l !== 'en');
+    document.getElementById('en-missing').hidden = DATA[l].starts.indexOf(null) < 0;
     document.querySelectorAll('[data-tr]').forEach(function(d){ d.hidden = d.getAttribute('data-tr') !== l; });
     if (keep) a.play().catch(function(){});
   }
