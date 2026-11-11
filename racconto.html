@@ -57,7 +57,7 @@
         <span class="kicker" data-i18n="ra_k">Narrazione registrata</span>
         <h2 data-i18n="ra_title">Maria Lai: la vita, l'arte, la montagna</h2>
         <div class="wave" aria-hidden="true" id="wave"></div>
-        <audio id="audio" controls preload="metadata" src="audio/racconto-it.mp3?v=2"></audio>
+        <audio id="audio" controls preload="metadata" src="audio/racconto-it.mp3?v=3"></audio>
         <p class="status" id="audio-status" hidden data-i18n="ra_missing">La registrazione non è ancora stata caricata. Comparirà qui appena pronta.</p>
       </div>
       <div>
@@ -149,7 +149,7 @@
     if (!DATA[l]) l = 'it';
     var keep = !a.paused;
     cur = l; a.hidden = false; s.hidden = true;
-    a.src = 'audio/racconto-' + l + '.mp3?v=2';
+    a.src = 'audio/racconto-' + l + '.mp3?v=3';
     DATA[l].starts.forEach(function(t, k){
       var li = items[k];
       li.classList.toggle('off', t === null);
